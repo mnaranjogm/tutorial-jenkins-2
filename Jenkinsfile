@@ -1,7 +1,7 @@
 #!groovy
 
 node {
-   // ----- Cambio para comprobar conexiones entre github y jenkings
+   // ----- Cambio para comprobar conexion
    // ------------------------------------
    // -- ETAPA: Compilar
    // ------------------------------------
