@@ -20,6 +20,12 @@ node {
    sh 'rm -rf *'
    checkout scm
    
+   // -- ETAPA: Sonarqube
+   // ------------------------------------
+   stage 'Sonarqube'
+   echo '*executing ... Sonarqube*'
+   sh 'mvn clean install sonar:sonar -P qa-ui -Dmaven.test.skip=true -f ./pom.xml'
+   
    // -- Compilando
    echo 'Compilando aplicación'
    sh 'mvn clean compile'
@@ -52,10 +58,4 @@ node {
    stage 'Archivar'
    echo 'Archiva el paquete el paquete generado en Jenkins'
    step([$class: 'ArtifactArchiver', artifacts: '**/target/*.jar, **/target/*.war', fingerprint: true])
-   
-   // -- ETAPA: Sonarqube
-   // ------------------------------------
-   stage 'Sonarqube'
-   echo '*executing ... Sonarqube*'
-   sh 'mvn clean install sonar:sonar -P qa-ui -Dmaven.test.skip=true -f ./pom.xml'
 }
