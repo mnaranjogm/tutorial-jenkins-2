@@ -2,6 +2,7 @@
 
 node {
    // ----- Cambio para comprobar conexion
+   // --- Comentario nuevo
    // ------------------------------------
    // -- ETAPA: Compilar
    // ------------------------------------
